@@ -1,7 +1,6 @@
 import React from 'react'
 import ProductList from '../pages/ProductList'
 import Categories from './Categories'
-import Navi from './Navi'
 import { Grid } from 'semantic-ui-react'
 
 export default function Dashboard() {
