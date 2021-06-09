@@ -3,12 +3,15 @@ import CartSummary from './CartSummary'
 import {Container, Menu } from 'semantic-ui-react'
 import SignedOut from './SignedOut'
 import SignedIn from './SignedIn'
+import { useHistory } from 'react-router'
 
 export default function Navi() {
     const [isAuthenticated, setIsAuthenticated] = useState(true)
+    const history= useHistory()
 
     function handleSignOut(params){  //çıkış yapı handle ediyorum
         setIsAuthenticated(false)
+        history.push("/") //çıkış yaptığında sepet detayında olmak yerine anasayfaya yönlendiriyor.
     }
 
     function handleSignIn(params){  //giriş yapı handle ediyorum
