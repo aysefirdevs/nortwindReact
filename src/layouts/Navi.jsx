@@ -4,8 +4,12 @@ import {Container, Menu } from 'semantic-ui-react'
 import SignedOut from './SignedOut'
 import SignedIn from './SignedIn'
 import { useHistory } from 'react-router'
+import { useSelector } from 'react-redux'
 
 export default function Navi() {
+
+    const {cartItems} = useSelector(state => state.cart)   //sepet 0sa gösterme kodunu yazdık aşağıda
+
     const [isAuthenticated, setIsAuthenticated] = useState(true)
     const history= useHistory()
 
@@ -30,7 +34,7 @@ export default function Navi() {
                     />
 
                     <Menu.Menu position='right'>
-                            <CartSummary/>
+                            {cartItems.length>0&&<CartSummary/>}  
                             {isAuthenticated?<SignedIn signedOut={handleSignOut} bisey="1" 
                             />:<SignedOut signedIn={handleSignIn}/>}
                     </Menu.Menu>
